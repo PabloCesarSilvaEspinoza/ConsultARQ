@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!-- mandar a /ingresos/id-->
+                            <a href="javascript: history.go(-1)" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Editar <small>Ingreso</small></h1>
+                            <p>En esta sección puedes editar los datos del ingreso seleccionado.</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
+                    </div>
+                    <div class="form-validation">
+                        <form class="form-valide" action="/editarIngreso/{{ingreso.idIngreso}}" method="post" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="idConceptoIngreso">Nombre concepto ingreso</label>
+                                    <select class="form-control" id="idConceptoIngreso" name="idConceptoIngreso">
+                                        <option selected value="{{concepto.idConceptoIngreso}}">{{concepto.conceptoIngreso}}</option>
+                                        {{#each conceptos}}
+                                            <option value="{{idConceptoIngreso}}">{{conceptoIngreso}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="monto">Monto</label>
+                                    <input type="number" step="any" class="form-control" id="monto" name="monto" value="{{ingreso.monto}}" placeholder="Ingrese el monto 00.00" required>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Fecha Ingreso</label>
+                                    <input type="date" class="form-control" id="fechaGasto" name="fechaGasto" placeholder="Ingrese la fecha yyyy-mm-dd">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Proyecto</label>
+                                    <select class="form-control" id="idProyecto" name="idProyecto">
+                                        <option selected value="{{proyecto.idProyecto}}">{{proyecto.nombre}}</option>
+                                        {{#each proyecto}}
+                                            <option value={{idProyecto}}>{{nombre}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Facturado</label>
+                                    <select class="form-control" id="facturado" name="facturado">
+                                        <option>
+                                            {{#if ingreso.facturado}}
+                                                <p>Facturable</p>
+                                            {{else}}
+                                                <p>No Facturable</p>
+                                            {{/if}}
+                                        </option>            
+                                        <option value="1">Facturable</option>
+                                        <option value="0">No facturable</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                        <a href="javascript: history.go(-1)" class="btn btn-outline-primary"><i class="fas fa-times-circle mr-2"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

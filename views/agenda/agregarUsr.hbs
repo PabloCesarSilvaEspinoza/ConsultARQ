@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/consultarAll" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <center>
+                                <div class="row mb-2">
+                                    <div class="col">
+                                        <img class="mr-3" src="images/avatar/avatar.png" width="80" height="80" alt="">
+                                    </div>
+                                </div>
+                            </center>
+                            <div class="row mb-3 text-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Nuevo Usuario</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            
+                        </div>
+                    </div>
+                    <div class="form-validation">
+                        <form class="form-valide" id="formregistro" action="/ingUsr" method="POST" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="idEmpleado">Empleado</label>
+                                    <select class="form-control" id="idEmpleado" name="empleado" required>
+                                        <option disabled> Seleccione el empleado para asignarle un usuario</option>
+                                        {{#each empleado}}
+                                            <option value={{idEmpleado}}>{{nombres}} {{primerApellido}} {{segundoApellido}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="username">Nombre de usuario</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese el nombre de usuario para iniciar sesión" required pattern="([A-Za-z]){1,45}">
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese el password" required >
+                                </div>
+                                <!--
+                                    <div class="col">
+                                        <label class="form-label" for="confirmPassword">Confirmar Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirme el password" required>
+                                    </div>
+                                -->
+                            </div>
+                            <div class="form-group mt-2 row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                    <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                    <a href="/consultarAll" class="btn mb-1 btn-outline-primary"><i class="fas fa-undo mr-2"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

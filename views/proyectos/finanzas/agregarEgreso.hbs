@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/menuFinanzas" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Egreso</small></h1>
+                            <p>En esta sección podrás añadir un egreso al sistema.</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <div class="form-validation">
+                        <form class="form-valide" action="agregar/egresoNuevo" method="post">
+                            <div class="row">
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Usuario</label>
+                                    <select class="form-control" id="val-skill" name="idUsuario">
+                                        <option value="" disabled> -- Seleccionar el Usuario -- </option>
+                                        {{#each usuario}}
+                                            <option value={{idEmpleado}}>{{nombres}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Concepto</label>
+                                    <select class="form-control" id="val-skill" name="idConceptoGasto">
+                                        <option value="" disabled> -- Seleccionar el nombre del egreso -- </option>
+                                        {{#each conceptoGasto}}
+                                            <option value={{idConceptoGasto}}>{{conceptoGasto}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Monto</label>
+                                    <input type="text" class="form-control" id="monto" name="monto" placeholder="Ingrese el monto total del egreso" required pattern="([0-9]+(\.[0-9])?){3,45}">
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Fecha</label>
+                                    <input type="date" class="form-control" id="fechaGasto" name="fechaGasto" placeholder="Ingrese la fecha del egreso (yyyy-mm-dd)"required >
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Método de pago</label>
+                                    <select class="form-control" id="val-skill" name="idMetodoDePago">
+                                        <option value="" disabled> -- Seleccionar el metodo de Pago -- </option>
+                                        {{#each metododepago}}
+                                            <option value={{idMetodoDePago}}>{{metodo}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="nombres">Facturado</label>
+                                    <select class="form-control" id="facturado" name="facturado">
+                                        <option disabled>Seleccione si es aplicable para factura o no</option>
+                                        <option value="1">Facurado</option>
+                                        <option value="0">No Facurado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                        <button class="btn btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-times-circle mr-2"></i>Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

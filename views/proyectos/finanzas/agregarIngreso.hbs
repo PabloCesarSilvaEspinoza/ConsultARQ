@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/menuFinanzas" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Ingreso</small></h1>
+                            <p>En esta sección puedes registrar un nuevo ingreso en tu sistema</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
+                    </div>
+                    <form class="form-valide" action="agregar/ingresoNuevo" method="post">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Concepto Ingreso</label>
+                                <select class="form-control" id="val-skill" name="idConceptoIngreso">
+                                    <option value="" disabled> -- Seleccionar el concepto del ingreso -- </option>
+                                    {{#each conceptoingreso}}
+                                        <option value={{idConceptoIngreso}}>{{conceptoIngreso}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Monto</label>
+                                <input type="number" step="any" class="form-control" id="monto" name="monto" placeholder="Ingrese el monto" required>
+                            </div>
+                            <div class="col"> 
+                                <label for="formGroupExampleInput" class="form-label">Fecha Ingreso</label>
+                                <input type="date" class="form-control" id="fechaGasto" name="fechaGasto" placeholder="Ingrese la fecha yyyy-mm-dd" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Proyecto</label>
+                                <select class="form-control" id="idProyecto" name="idProyecto">
+                                    <option value="" disabled> -- Seleccionar el proyecto -- </option> 
+                                    {{#each proyecto}}
+                                        <option value={{idProyecto}}>{{nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="formGroupExampleInput" class="form-label">Facturado</label>
+                                <select class="form-control" id="facturado" name="facturado">
+                                    <option disabled>Seleccione si es aplicable para factura o no</option>
+                                    <option value="1">Facurado</option>
+                                    <option value="0">No Facurado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row-md-12  text-right">
+                                <button class="btn btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                <a type="button" class="btn btn-outline-primary" href="/menuFinanzas"><i class="fas fa-times-circle mr-2"></i>Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

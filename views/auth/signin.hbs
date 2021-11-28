@@ -1,0 +1,98 @@
+<div class="container p-4">
+  {{>message}} 
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <div class="card text-center">
+        
+        <div class="card-header">
+          <p></p>
+          <img src="/images/logoLoginGamma2.png" class="rounded mx-auto d-block" alt="">
+        </div>
+        
+        <div class="card-body">
+
+          <ul class="nav nav-pills mb-3 justify-content-center">
+            <li class="nav-item">
+                <a href="#Usuario" class="nav-link active show" data-toggle="tab" aria-expanded="TRUE">Usuarios</a>
+              </li>
+            <li class="nav-item">
+              <a href="#Administrador" class="nav-link" data-toggle="tab" aria-expanded="FALSE">Administrador</a>
+            </li>
+          </ul>
+          <div class="tab-content br-n pn">
+            
+<!-- INGRESAR SI ES USUARIO -->
+            <div id="Usuario" class="tab-pane active show">          
+              <form action="/logginUsuario" method="POST" autocomplete="off">
+                <!--usuario-->
+                <div class="form-group">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fa fa-user"></span>
+                        </span>                    
+                      </div>
+                      <input type="text" name="username" id="username" placeholder="Nick" class="form-control">				
+                    </div>
+                </div>
+                <!--Contraseña-->
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                      </span>                    
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control">				
+                  </div>
+                </div>
+                <!--Boton-->
+                <div class="form-group">
+                  <button type="submit" class="btn mb-1 btn-flat btn-primary btn-block">
+                    Ingresar
+                  </button>
+                  
+                </div>
+              </form>
+            </div>
+<!-- INGRESAR SI ES ADMINISTRADOR -->
+            <div id="Administrador" class="tab-pane">          
+              <form action="/loggin" method="POST" autocomplete="off">
+                <!--usuario-->
+                <div class="form-group">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fa fa-user"></span>
+                        </span>                    
+                      </div>
+                      <input type="text" name="user" id="user" placeholder="Username" class="form-control">				
+                    </div>
+                </div>
+                <!--Contraseña-->
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                      </span>                    
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control">				
+                  </div>
+                </div>
+                <!--Boton-->
+                <div class="form-group">
+                  <button type="submit" class="btn mb-1 btn-flat btn-primary btn-block">
+                    Ingresar
+                  </button>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

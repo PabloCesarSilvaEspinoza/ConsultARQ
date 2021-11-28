@@ -1,0 +1,82 @@
+<div class="container-fluid mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3 mb-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!--aqui debe regresar a la sección de consultar-->
+                            <a href="/menuOpciones/{{info.idProyecto}}" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Editar <small>{{info.nProyecto}}</small></h1>
+                            <p>En esta sección podrás editar el proyecto seleccionado. </p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 text-right">
+                        </div>
+                    </div>
+                    <form action="/editarProyecto/{{info.idProyecto}}" method="POST">
+                        <div class="mb-3"> 
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Nombre del proyecto</label>
+                                    <input type="text" class="form-control" id="nombreProyecto" id="nombre" name="nombre" placeholder="Nombre del proyecto" required value="{{info.nProyecto}}">
+                                </div>
+                                <div class="col-lg-2 mb-4">
+                                    <div class="example">
+                                        <div class="form-group">
+                                            <label>Estado:</label>
+                                            <select class="form-control" id="estatus" name="estatus">
+                                                <option selected value="{{info.estatus}}">
+                                                    {{#switch info.estatus}}
+                                                    {{#case '1'}}  
+                                                        Activo
+                                                    {{/case}} 
+                                                    {{#case '2'}}
+                                                        Cancelado
+                                                    {{/case}}
+                                                    {{#case '3'}}
+                                                        Terminado
+                                                    {{/case}}
+                                                {{/switch}}
+                                                </option>
+                                                <option value='1'>Activo</option>
+                                                <option value='2'>Cancelado</option>
+                                                <option value='3'>Terminado</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle y Numero Donde Se Localiza el Proyecto" value="{{info.calle}}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Colonia</label>
+                                    <input  type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia Donde se Localiza el Proyecto" value="{{info.colonia}}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="example">
+                                        <label for="formGroupExampleInput" class="form-label">Fecha de Inicio</label>
+                                        <input class="form-control input-daterange-datepicker" type="date" id="fechaInicio" name="fechaInicio">
+                                    </div> 
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="example">
+                                        <label for="formGroupExampleInput" class="form-label">Fecha de Entrega</label>
+                                        <input class="form-control input-daterange-datepicker " type="date" id="fechaFin" name="fechaFin" > 
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row"><div class="col text-right mt-4">
+                                <button type="submit" class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                <!--regresar a /menuOpciones/id-->
+                                <a href="/menuOpciones/{{info.idProyecto}}" class="btn mb-1 btn-outline-primary"><i class="fas fa-times-circle mr-2"></i> Cancelar</a>
+                            </div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+              

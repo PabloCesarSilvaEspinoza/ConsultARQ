@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <!-- mandar a /ingresos/id-->
+                            <a href="/ingresos/id" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Ingreso</small></h1>
+                            <p>En esta sección puedes registrar un nuevo ingreso en tu sistema</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
+                    </div>
+                    <form class="form-valide" action="/nuevoIngresoP" method="post">
+                        <div class="row mb-3">
+                            <div class="col-lg-4 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Concepto Ingreso</label>
+                                <select class="form-control" id="val-skill" name="idConceptoIngreso">
+                                    <option value="" disabled> -- Seleccionar el concepto del ingreso -- </option>
+                                    {{#each conceptoingreso}}
+                                        <option value={{idConceptoIngreso}}>{{conceptoIngreso}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Monto</label>
+                                <input type="text" class="form-control" id="monto" name="monto" placeholder="Ingrese el monto total del ingreso" required pattern="([0-9]{1,3}[,])?([0-9]{3}[,])?[0-9]{1,3}[.][0-9]*">
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Fecha Ingreso</label>
+                                <input type="date" class="form-control" id="fechaGasto" name="fechaGasto" placeholder="Ingrese la fecha yyyy-mm-dd" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-6 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Proyecto</label>
+                                <select class="form-control" id="idProyecto" name="idProyecto">
+                                    {{#each proyecto}}
+                                        <option value={{idProyecto}}>{{nombre}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Facturado</label>
+                                <select class="form-control" id="facturado" name="facturado">
+                                    <option disabled>Seleccione si es aplicable para factura o no</option>
+                                    <option value="1">Facurable</option>
+                                    <option value="0">No facturable</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row-md-12  text-right">
+                            <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                            <!--hace falta programar este-->
+                            <a href="#" class="btn mb-1 btn-outline-primary"><i class="fas fa-undo mr-2"></i>Guardar y permanecer</a>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

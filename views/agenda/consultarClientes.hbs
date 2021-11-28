@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <form method="POST" action="/views/agenda/editarUsuarios.hbs"> -->
+                    <div class="form-group row  mb-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/consultarAll" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <img src="/images/avatar/avatarH.png" width="80" height="80" alt="">
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 text-right">
+                            <a href="/editarClientes/{{link.idCliente}}" class="btn btn-primary"><i class="fas fa-pencil-alt mr-2"></i> Editar</a>
+                        </div>
+                    </div>
+                    <div class="row mb-2 text-center">
+                        <div class="col">
+                            <h3 class="mb-0" id="nombre" name="nombre">{{link.nombres}}</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-2 text-center">
+                        <div class="col">
+                            <p class="text-muted mb-0" id="estatus" name="estatus">
+                                {{#if link.estatus}}
+                                    <p>Activo</p>
+                                {{else}}
+                                    <p>Inactivo</p>
+                                {{/if}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-badge"></i></span>
+                                <h3 class="mb-0" id="rfc" name="rfc">{{link.RFC}}</h3>
+                                <p class="text-muted px-4">RFC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-kimberly"><i class="icon-phone"></i></span>
+                                <h4 id="telefono" name="telefono">{{link.telefono}}</h4>
+                                <p class="text-muted" >Teléfono</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-bssb"><i class="icon-envelope-open"></i></span>
+                                <h4 id="correo" name="correo">{{link.correo}}</h4>
+                                <p class="text-muted">Correo electrónico</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- </form> -->
+                </div>
+            </div>  
+        </div>
+        
+        <div class="col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-body"> 
+                    <h3>Proyectos <small>Relacionados</small></h3>
+                    <div class="mail-list mt-4"> 
+                        {{#if proyecto}}
+                            {{#if proyecto.estatus}}
+                                    <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-briefcase font-18 align-middle mr-2" id="proyectoNombre" name="proyectoNombre"></i> {{proyecto.nombre}} <span class="badge badge-success badge-sm float-right m-t-5" id="estadoProyecto" name="estadoProyecto">Activo</span></a>
+                                {{else}}
+                                    <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-briefcase font-18 align-middle mr-2" id="proyectoNombre" name="proyectoNombre"></i> {{proyecto.nombre}} <span class="badge badge-danger badge-sm float-right m-t-5" id="estadoProyecto" name="estadoProyecto">Finalizado</span></a>
+                            {{/if}}
+                            {{else}}
+                                <a class="list-group-item border-0 p-r-0"> <span class="badge badge-danger badge-sm float m-t-5" id="sinproyecto" name="sinproyecto">Este cliente no tiene proyectos asignados</span> </a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

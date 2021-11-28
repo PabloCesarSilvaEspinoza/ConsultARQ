@@ -1,0 +1,92 @@
+<script>
+    console.log("dirección"); 
+    console.log(__dirname);
+</script>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <br>
+                <h1 class=" display-4 text-center">Agenda</h1>
+                <div class="card-body">
+                    <ul class="nav nav-pills  justify-content-center ">
+                        <li class="nav-item">
+                            <a href="#Clientes" class="nav-link active show" data-toggle="tab" aria-expanded="true">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#Proveedores" class="nav-link" data-toggle="tab" aria-expanded="false">Proveedores</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content br-n pn">
+                        <div id="Clientes" class="tab-pane active show ">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 mt-2"></div>
+                                <div class="col col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-2">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                                        </div>
+                                        <input type="search" class="form-control" placeholder="Buscar Cliente">
+                                        <div class="drop-down d-md-none">
+                                            <form action="#"><input type="text" class="form-control" placeholder="Search"></form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#each clientes}}
+                                    <div class="col-lg-3 col-md-6 mt-3">
+                                        <div class="card">
+                                            <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                            <h5 class="card-title text-center mt-3" id="nombreCliente" name="nombreCliente">{{nombres}} {{primerApelllido}}</h5>
+                                            <a href="/Usr/consultarCliente/{{idCliente}}" class="stretched-link"></a>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div id="Proveedores" class="tab-pane">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 mt-2"></div>
+                                <div class="col col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-2">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                                        </div>
+                                        <input type="search" class="form-control" placeholder="Buscar Proveedor">
+                                        <div class="drop-down d-md-none">
+                                            <form action="#"><input type="text" class="form-control" placeholder="Search"></form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#each proveedores}}
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="card">
+                                            <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                            <h5 class="card-title text-center mt-3" id="nombreProveedor" name="nombreProveedor">{{nombre}}</h5>
+                                            <a href="/Usr/consultarProveedores/{{idProveedor}}" class="stretched-link"></a>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div id="Empleados" class="tab-pane">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-9 col-md-9 col-lg-9 col-xl-9 col-xxl-9 mt-2"></div>
+                                <div class="col col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mt-2">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                                        </div>
+                                        <input type="search" class="form-control" placeholder="Buscar Empleado">
+                                        <div class="drop-down d-md-none">
+                                            <form action="#"><input type="text" class="form-control" placeholder="Search"></form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

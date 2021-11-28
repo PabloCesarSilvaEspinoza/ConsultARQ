@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row ">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/menuOpciones/{{idProyecto}}" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Ingresos <small>Nombre del Proyecto</small></h1>
+                            <p>En esta sección podrás consultar los ingresos relacionados a tu proyecto.</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Grafica <small>de Ingresos</small></h1>
+                    <div id="line-chart-tooltips" class="ct-chart ct-golden-section"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Tabla <small>de Ingresos</small></h1>
+                    <div class="table-responsive text-center">
+                        <table class="table table-striped table-bordered zero-configuration">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Concepto</th>
+                                    <th>Monto</th>
+                                    <th>Proyecto</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  {{#each ingreso}}
+                                <tr>
+                                    <td>{{idIngreso}}</td>
+                                    <td>{{conceptoIngreso}}</td>
+                                    <td>{{monto}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td> 
+                                        <span> 
+                                            <a href="/editarIngreso/{{idIngreso}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar">
+                                                <i class="fa fa-pencil color-muted m-r-5"></i> 
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                        
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Concepto</th>
+                                    <th>Monto</th>
+                                    <th>Proyecto</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <a href="/agregarIngresoProyecto/{{idProyecto}}" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Agregar Ingreso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            

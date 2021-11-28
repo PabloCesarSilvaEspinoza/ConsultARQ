@@ -1,0 +1,61 @@
+<div class="container-fluid mt-3">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/tareas/id" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar<small>Tarea</small></h1>
+                            <p>En esta sección podrás agregar una nueva tarea al usuario seleccionado. </p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <form action="/agregarTareas" method="POST">
+                        <div class="row">
+                            <div hidden>
+                                <label for="formGroupExampleInput" class="form-label">id del proyecto</label>
+                                <input type="text" class="form-control" id="idProyecto" name="idProyecto" value="{{proyecto.idProyecto}}">
+                            </div>
+                                <div hidden>
+                                <label for="formGroupExampleInput" class="form-label">id del proyecto</label>
+                                <input type="text" class="form-control" id="idProyect" name="idProyect" value="{{proyecto.idProyecto}}">
+                            </div><!--
+                            <div class="col-lg-3 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">id del proyecto</label>
+                                <input type="text" class="form-control" id="idProyecto" name="idProyecto" value="{{proyecto.idProyecto}}">
+                            </div>-->
+                            <div class="col-lg-4 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Descripción de Tarea</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la tarea" required>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <label>Encargado:</label>
+                                <select class="form-control" id="sel1" name="idEmpleado">
+                                    <option disabled selected>-Seleccione el Encargado</option>
+                                    {{#each empleados}}
+                                        <option value={{idEmpleado}}>{{nombres}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>   
+                            <div class="col-lg-4 mb-3">
+                                <label>Estado:</label>
+                                <select class="form-control" id="sel1" name="estatus">
+                                    <option disabled selected>-Elije el estatus-</option>
+                                    <option value='1'>Activo</option>
+                                    <option value='2'>Cancelado</option>
+                                    <option value='3'>Terminado</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="row"><div class="col text-right mt-4">
+                            <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                            <a href="/proyectos" class="btn mb-1 btn-outline-primary"><i class="fas fa-times-circle mr-2"></i>Cancelar</a>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

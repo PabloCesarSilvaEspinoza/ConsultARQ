@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <!--Titutlo de la pagina-->
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mb-1">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Consultar <small>Tareas</small></h1>
+                            <p>En esta sección podrás consultar las tareas del usuario seleccionado que participan en el proyecto. </p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <div class="input-group icons">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                                </div>
+                                <input type="search" class="form-control" placeholder="Buscar servicio" aria-label="Search Dashboard">
+                                <div class="drop-down   d-md-none">
+                                    <form action="#">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--De aqui para abajo van las cards-->
+    <div class="row">
+        
+        <!--Lista-->
+        <div class="col">
+            <div class="card" >
+                <div class="card-body">
+                <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="javascript: history.go(-1)" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <!--lista de Tareas-->
+           <!--<form action="/eliminarTarea/{{idTarea}}" method="POST"></form>-->
+                    <div class="todo-list ">
+                        <div class="tdl-holder ">
+                            <div class="tdl-content2 tdl-content--no-label mt-4">
+                              
+                                {{#each informacion}}
+                                {{#switch estatus}}
+                                {{#case '1'}}
+                                <form action="/eliminarTarea/{{idTarea}}" method="POST">
+                                    <input hidden type="text" value="{{idProyecto}}" name="idProyecto">
+                                    <input hidden type="text" value="{{idEmpleado}}" name="idEmpleado">
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="{{idTarea}}" id="{{idTarea}}"
+                                                value="{{idTarea}}"><i></i><span>{{descripcion}}</span>
+                                                <a class="text-right"><button class="btn mb-1 btn-primary"><i class="fas fa-times"></i></button></a><!---->
+                                        </label>
+                                    </li>
+                                    <div hidden class="text-center">
+                                        <button class="btn mb-1 btn-primary"><i class="fas fa-save"></i>Guardar</button>
+                                    </div>
+                                </form>
+                                  
+                                    {{/case}}
+                                    {{/switch}}
+                                     
+                                {{/each}}
+                            </div>
+                           
+                        </div>
+                    </div>  
+                   
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>

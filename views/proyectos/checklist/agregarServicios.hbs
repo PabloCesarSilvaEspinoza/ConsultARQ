@@ -1,0 +1,43 @@
+<div class="container-fluid mt-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/checklist/{{idProyecto}}" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Subservicio</small></h1>
+                            <p>En esta sección podrás agregar nuevos subservicios de un area a tu proyecto.</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <form action="/agregarSubservicios/{{idProyecto}}" method="POST">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Nombre del Subservicio</label>
+                                <input type="text" class="form-control" id="nombreServicio" name="nombreServicio" placeholder="Ingrese el nomre del servicio" required pattern="([A-Za-z].?){1,45}">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Area</label>
+                                <select id="inputState" name="nombre" class="form-control" required>
+                                    <option selected="selected" disabled selected>Seleccione un Area    </option>
+                                    {{#each servicio}}
+                                        <option>{{nombreArea}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-8 ml-auto  text-right">
+                                <button class="btn btn-outline-primary"><i class="fas fa-undo mr-2"></i>Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

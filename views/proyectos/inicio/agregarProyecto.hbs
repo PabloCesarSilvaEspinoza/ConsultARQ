@@ -1,0 +1,98 @@
+<div class="container-fluid mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3 mb-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/proyectos" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Nuevo Proyecto</small></h1>
+                            <p>En esta sección podrás agregar un nuevo proyecto a tu sistema. </p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <form action="/agregarProyecto" method="POST">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Nombre del Proyecto</label>
+                                    <input type="text" autocomplete="off" class="form-control" id="nombreProyecto" name="nombre" placeholder="Ingrese el nombre para el proyecto" required>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Tipo de Proyecto</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="nombreChecklist" name="nombreChecklist" placeholder="Ingrese tipo de proyecto" required>
+                                </div>
+                                <div class="col-lg-2 mb-4">
+                                    <div class="basic-form">
+                                        <div class="form-group">
+                                            <label>Cliente:</label>
+                                            <select class="form-control" id="sel1" name="idCliente">
+                                                <option disabled selected>-Selecciona el Cliente-</option>
+                                                {{#each clientes}}
+                                                    <option value={{idCliente}}>{{nombres}} RFC: {{RFC}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 mb-4">
+                                    <div class="basic-form">
+                                        <div class="form-group">
+                                            <label>Encargado:</label>
+                                            <select class="form-control" id="sel1" name="idEmpleado">
+                                                <option disabled selected>-Seleccione el Encargado</option>
+                                                {{#each empleados}}
+                                                    <option value={{idEmpleado}}>{{nombres}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="col-lg-2 mb-4">
+                                    <div class="example">
+                                        <div class="form-group">
+                                            <label>Estado:</label>
+                                            <select class="form-control" id="sel1" name="estatus">
+                                                <option disabled selected>-Elije el estatus-</option>
+                                                <option value='1'>Activo</option>
+                                                <option value='2'>Cancelado</option>
+                                                <option value='3'>Terminado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Calle</label>
+                                    <input type="text" autocomplete="off" class="form-control" id="direccionProyecto" name="calle" placeholder="Calle y Numero Donde Se Localiza el Proyecto" >
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label for="formGroupExampleInput" class="form-label">Colonia</label>
+                                    <input type="text" autocomplete="off" class="form-control" id="direccionProyecto" name="colonia" placeholder="Colonia Donde se Localiza el Proyecto" >
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="example">
+                                        <label for="formGroupExampleInput" class="form-label">Fecha de Inicio</label>
+                                        <input class="form-control input-daterange-datepicker" type="date" name="fechaInicio" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="example">
+                                        <label for="formGroupExampleInput" class="form-label">Fecha de Entrega</label>
+                                        <input class="form-control input-daterange-datepicker " type="date" name="fechaFin">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"><div class="col text-right mt-4">
+                                <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                <a href="/proyectos" class="btn mb-1 btn-outline-primary"><i class="fas fa-times-circle mr-2"></i> Cancelar</a>
+                            </div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+              

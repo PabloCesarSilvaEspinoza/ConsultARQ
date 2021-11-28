@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3 mb-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/consultarAll" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <center>
+                                <div class="row mb-2">
+                                    <div class="col">
+                                        <img src="images/avatar/avatar.png" width="80" height="80" alt="">
+                                    </div>
+                                </div>
+                            </center>
+                            <div class="row mb-5 text-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Nuevo Empleado</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            
+                        </div>
+                    </div>
+                    <div class="form-validation"> 
+
+ <!--<<<<<<< HEAD -->
+                        <form class="form-valide" action="/agregarEmpleado" method="POST" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-username">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombres" placeholder="Ingresa el/los nombre(s) del empleado" required pattern="([A-Za-z].?){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-username">Primer Apellido</label>
+                                    <input type="text" class="form-control" id="primerApellido" name="primerApellido" placeholder="Ingresa el primer apellido del empleado" required pattern="([A-Za-z]){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-username">Segundo Apellido</label>
+                                    <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" placeholder="Ingresa el segundo apellido del empleado" required pattern="([A-Za-z]){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-skill">Estatus</label>
+                                    <select class="form-control" id="val-skill" name="estatus">
+                                        <option disabled selected> -- Seleccione el Estatus -- </option>
+                                        <option value=1>Activo</option>
+                                        <option value=2>Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-email">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingresa el teléfono" required pattern="([0-9]){3,12}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-email">Correo</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa el correo electrónico" required pattern="[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*">
+                                </div>
+                                
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-skill">Cargo</label>
+                                    <select class="form-control" id="val-skill" name="idRol">
+                                        <option value="" disabled selected> -- Seleccionar cargo -- </option>
+                                        {{#each rol}}
+                                            <option value={{idRol}}>{{tipoRol}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="val-skill">Área</label>
+                                    <select class="form-control" id="val-skill" name="idArea" required>
+                                        <option disabled selected> -- Seleccione la area del Empleado -- </option>
+                                        {{#each area}}
+                                            <option value={{idArea}}>{{nombreArea}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2 row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                    <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                    <a href="/consultarAll" class="btn mb-1 btn-outline-primary"><i class="fas fa-undo mr-2"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

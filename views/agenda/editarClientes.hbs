@@ -1,0 +1,84 @@
+<!-- Esta plantilla es la buena -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/consultarClientes/{{link.idCliente}}" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <center>
+                                <div class="row mb-2">
+                                    <div class="col">
+                                        <img class="mr-3" src="/images/avatar/avatar.png" width="80" height="80" alt="">
+                                    </div>
+                                </div>
+                            </center>
+                            <div class="row mb-3 text-center">
+                                <div class="col">
+                                    <h3 class="mb-0" id="nombreUsuario" name="nombreUsuario">{{link.nombres}} {{link.primerApelllido}} {{link.segundoApellido}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-validation">
+                        <!-- Aqui mero está el form con "." retrocedes a la raiz/ruta anterior-->
+                        <form class="form-valide" action="/editarClientes/{{link.idCliente}}" method="POST" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="nombres">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombre(s)" value="{{link.nombres}}" required pattern="([A-Za-z].?){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <label class="form-label" for="primerApelllido">Primer Apellido</label>
+                                    <input type="text" class="form-control" id="primerApelllido" name="primerApelllido" placeholder="Primer Apellido" value="{{link.primerApelllido}}" required pattern="([A-Za-z]){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-3">
+                                    <label class="form-label" for="segundoApellido">Segundo Apellido</label>
+                                    <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" placeholder="Segundo Apellido" value="{{link.segundoApellido}}" required pattern="([A-Za-z]){1,45}">
+                                </div>
+                                <div class="col-lg-2 mb-3">
+                                    <label class="form-label" for="estatus">Estatus </label>
+                                    <select name="estatus" id="estatus" class="form-control" required>
+                                        <option selected>
+                                            {{#if link.estatus}}
+                                                <p>Activo</p>
+                                            {{else}}
+                                                <p>Inactivo</p>
+                                            {{/if}}
+                                        </option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="telefono">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="44-444-4444" value="{{link.telefono}}" required pattner="([0-9]){3,12}">
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="email">Correo</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@electronico.com" value="{{link.correo}}" required pattner="[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*">
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label" for="RFC">RFC</label>
+                                    <input type="text" class="form-control" id="rfc" name="RFC" placeholder="RFC" value="{{link.RFC}}" required pattern="([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])">
+                                </div>
+                            </div>
+                            <div class="form-group mt-2 row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                    <button type="submit"  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                    <a href="/consultarClientes/{{link.idCliente}}" class="btn mb-1 btn-outline-primary"><i class="fas fa-times-circle mr-2"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

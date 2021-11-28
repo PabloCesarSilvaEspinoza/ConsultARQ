@@ -1,0 +1,217 @@
+<script>
+    console.log("dirección"); 
+    console.log(__dirname);
+</script>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h1 class="text-center mt-4">Agenda <small>de Contactos</small></h1>
+                <p class="text-center">Aqui puedes consultar todos los clientes, proveedores, empleados y usuarios registrados en tu sistema.</p>
+                <div class="card-body">
+                    <ul class="nav nav-pills  justify-content-center ">
+                        <li class="nav-item">
+                            <a href="#Clientes" class="nav-link active show" data-toggle="tab" aria-expanded="true">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#Proveedores" class="nav-link" data-toggle="tab" aria-expanded="false">Proveedores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#Empleados" class="nav-link" data-toggle="tab" aria-expanded="false">Empleado</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#Usuarios" class="nav-link" data-toggle="tab" aria-expanded="false">Usuarios</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content br-n pn">
+                        <div id="Clientes" class="tab-pane active show ">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-7 col-xxl-7 mt-8"></div>
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-5 col-xxl-5 mt-4">
+                                    <div class="d-flex justify-content-end">
+                                        <!-- ---------------buscador-------------- -->
+                                        <input type="text" id="formulario_cliente" class="form-control" placeholder="Buscar Cliente" autocomplete="off">
+                                        
+                                        <div class="bootstrap-modal">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#basicModal"><i class="fas fa-search "></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="basicModal">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Clientes encontrados</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div id="resultado_cliente" class="text-center">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ------------------------------------- -->
+                                        <a href="/agregarClientes" class="btn mb-4 btn-primary ml-2"><span><i class="fas fa-plus mr-2"></i>Agregar</span></a>
+                                    </div>
+                                </div>
+                                {{#each clientes}}
+                                    <div class="col-lg-3 col-md-6 mt-3">
+                                        <div class="card">
+                                            <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                            <h5 class="card-title text-center mt-3" id="nombreCliente" name="nombreCliente" title="{{idCliente}}">{{nombres}} {{primerApelllido}}</h5>
+                                            <h5 class="text-center md-5"><small >{{telefono}}</small></h5>
+                                            <p></p>
+                                            <a href="consultarClientes/{{idCliente}}" class="stretched-link"></a>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div id="Proveedores" class="tab-pane">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-7 col-xxl-7 mt-8"></div>
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-5 col-xxl-5 mt-4">
+                                    <div class="d-flex justify-content-end">
+                                        
+                                        <!-- ---------------buscador-------------- -->
+                                        <input type="text" id="formulario_proveedor" class="form-control mb-2" placeholder="Buscar Proveedor" autocomplete="off">
+                                        <div class="bootstrap-modal">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary ml-2 mr-2" data-toggle="modal" data-target="#proveedoresModal"><i class="fas fa-search"></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="proveedoresModal">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Proveedores encontrados</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div id="resultado_proveedor" class="text-center">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ------------------------------------- -->
+                                        
+                                        <a href="/agregarProveedor" class="btn mb-1 btn-primary mb-3"><span><i class="fas fa-plus mr-2"></i>Agregar</span></a>
+                                    </div>
+                                </div>
+                                
+                                {{#each proveedores}}
+                                    <div class="col-lg-3 col-md-6" id="proveedor">
+                                        <div class="card">
+                                            <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                            <h5 class="card-title text-center mt-3" id="nombreProveedor" name="nombreProveedor" title="{{idProveedor}}">{{nombre}}</h5>
+                                            <h5 class="text-center md-5"><small >{{telefono}}</small></h5>
+                                            <p></p>
+                                            <a href="/consultarProveedor/{{idProveedor}}" class="stretched-link"></a>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                                    
+                            </div>
+                        </div>
+                        <div id="Empleados" class="tab-pane">
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-7 col-xxl-7 mt-8"></div>
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-5 col-xxl-5 mt-4">
+                                    <div class="d-flex justify-content-end">
+                                        <!-- ---------------buscador-------------- -->
+                                        <input type="text" id="formulario_empleado" class="form-control mb-2" placeholder="Buscar Empleado" autocomplete="off">
+                                        <div class="bootstrap-modal">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary ml-2 mr-2" data-toggle="modal" data-target="#empleadoModal"><i class="fas fa-search"></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="empleadoModal">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Empleados encontrados</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div id="resultado_empleado" class="text-center">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ------------------------------------- -->
+                                        <a href="/agregarUsuarios" class="btn mb-1 btn-primary mb-3"><span><i class="fas fa-plus mr-2"></i>Agregar</span></a>
+                                    </div>
+                                </div>
+                                {{#each emplead}}
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card">
+                                        <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                        <h5 class="card-title text-center mt-3" id="nombreUsuario" name="nombreUsuario" title="{{idEmpleado}}">{{nombres}} {{primerApellido}} {{segundoApellido}}</h5>
+                                        <h5 class="text-center md-5"><small>{{telefono}}</small></h5>
+                                        <p></p>
+                                        <a href="/consultarEmpleado/{{idEmpleado}}" class="stretched-link"></a> 
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+                        <div id="Usuarios" class="tab-pane">   
+                            <div class="form-group row  mt-2">
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-7 col-xxl-7 mt-8"></div>
+                                <div class="col col-sm-12 col-md-12 col-lg-6 col-xl-5 col-xxl-5 mt-4">
+                                    <div class="d-flex justify-content-end">
+                                        <!-- ---------------buscador-------------- -->
+                                        <input type="text" id="formulario_usuario" class="form-control mb-2" placeholder="Buscar Usuario" autocomplete="off">
+                                        <div class="bootstrap-modal">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary ml-2 mr-2" data-toggle="modal" data-target="#usuariosModal"><i class="fas fa-search"></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="usuariosModal">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Usuarios encontrados</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"><span>×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div id="resultado_usuario" class="text-center">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ------------------------------------- -->
+                                        <a href="/agregarUsr" class="btn mb-1 btn-primary mb-3"><span><i class="fas fa-plus mr-2"></i>Agregar</span></a>
+                                    </div>
+                                </div>
+                                {{#each usuario}}
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card">
+                                        <div align="center"><img class="mt-3" src="/images/avatar/avatar.png" width="80" height="80" alt=""></div>
+                                        <h5 class="card-title text-center mt-3" id="nombreUsr" name="nombreUsr" title="{{idUsuario}}">{{username}} </br> <small>{{nombres}} {{primerApellido}}</small> </h5>
+                                        <a href="/consultarUsuario/{{idUsuario}}" class="stretched-link"></a>
+                                    </div> 
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

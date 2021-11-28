@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/tablaAreas" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <h1>Agregar <small>Area</small></h1>
+                        <p>En esta sección podrás añadir una nueva área al sistema.</p>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                        </div>
+                    </div>
+                    <form class="form-valide" action="agregar/nuevaArea" method="POST">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Nombre del Area</label>
+                            <input type="text" autocomplete="off" class="form-control" id="nombreArea" name="nombreArea" placeholder="Debe comenzar con una letra mayuscula, puede terminar con un numero. Minimo 3 caracteres, maximo 40" required pattern="([A-Z]([A-Za-z]\s*+)[0-9]*){1,13}">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-8 ml-auto  text-right">
+                                <button  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                <!--hace falta programar este-->
+                                <a href="/tablaAreas" class="btn mb-1 btn-outline-primary"><i class="fas fa-undo mr-2"></i>Cancelar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

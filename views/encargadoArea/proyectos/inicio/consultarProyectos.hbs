@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div id="accordion-two" class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2"><i class="fa" aria-hidden="true"></i> Opciones</h5>
+                    </div>
+                    <div id="collapseTwo2" class="collapse" data-parent="#accordion-two">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="#" method="POST" autocomplete="off">
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <label>Buscador</label>
+                                                <input type="search" class="form-control" placeholder="Buscar nombre" aria-label="Search Dashboard">
+                                                <div class="drop-down d-md-none">
+                                                    <form action="#">
+                                                        <input type="text" class="form-control" placeholder="Search" id="buscar" name="buscar">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <label>Tipo</label>
+                                                <select class="form-control" id="tipo" name="tipo">
+                                                    <option  selected disabled>Seleccionar tipo</option>
+                                                    {{#each tipo}}
+                                                        <option>{{tipo}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <label>Estatus</label>
+                                                <select class="form-control" id="estatus" name="estatus">
+                                                    <option selected disabled>Seleccionar estatus</option>
+                                                    <option value='1'>Activo</option>
+                                                    <option value='2'>Preproyecto</option>
+                                                    <option value='3'>Finalizado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto  text-right">
+                                                <button class="btn btn-outline-primary">Aplicar los filtros</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {{#each proyectos}}
+        <!--proyecto.idProyecto as idProyecto,proyecto.nombre as nProyecto,proyecto.calle as calle,
+        proyecto.colonia as colonia,proyecto.estatus as estatus,proyecto.fechaFin as fechaFin,
+        cliente.nombres as nCliente,cliente.RFC as RFC,checklist.nombre as nTipo-->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="social-graph-wrapper widget-facebook">
+                    <div class="mt-4"><h3 style="color: aliceblue;">{{nProyecto}}</h3></div>
+                </div>
+                <div class="card-body">
+                    <div class="bootstrap-media">
+                        <div class="media">
+                            <div class="row">
+                                <div class="col-lg-3" align="center">
+                                    <img class="align-self-center" src="/images/proyecto/proyecto.png" width="100" height="100" alt="Generic placeholder image">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="media-body ml-3">
+                                        <h5 class="mt-0">Cliente {{nCliente}} RFC {{RFC}}</h5>
+                                            <h5 class="mt-0">Encargado {{emplead}} {{pE}} {{sE}}</h5>
+                                        <h6><i class="align-self-start mr-3 cc KMD f-s-30"></i>{{nTipo}}</h6>
+                                        <h6><i class="align-self-start mr-3 cc INCNT f-s-30"></i> {{calle}},{{colonia}} </h6>
+                                        <h6><i class="far fa-calendar mr-3"></i>{{fechaFin}}</h6>
+                                        {{#switch estatus}}
+                                            {{#case '1'}}  
+                                                <h6><img class="align-self-center mr-3" src="/images/proyecto/activo.png" width="10" height="10" alt="Generic placeholder image">Activo</h6>
+                                            {{/case}} 
+                                            {{#case '2'}}
+                                                <h6><img class="align-self-center mr-3" src="/images/proyecto/suspendido.png" width="10" height="10" alt="Generic placeholder image">Suspendido</h6>
+                                            {{/case}}
+                                            {{#case '3'}}
+                                                <h6><img class="align-self-center mr-3" src="/images/proyecto/finalizado.png" width="10" height="10" alt="Generic placeholder image">Terminado</h6>
+                                            {{/case}}
+                                        {{/switch}}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/Usr/menuOpciones/{{idProyecto}}" class="stretched-link"></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="col-lg-12">
+        <div class="bootstrap-pagination">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

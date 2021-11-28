@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="container-fluid">
+            <div class="form-group row mt-3 mb-3">
+                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                    <a href="/Usr/consultarProyectos" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <h1 class="text-center">{{proyecto.nProyecto}}</h1>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 text-right">
+                </div>
+            </div>
+            <div class="form-group row mt-3 mb-3">
+                <div class="col">
+                    <div class="text-center">
+                        <img class="align-self-center mb-5" src="/images/proyecto/proyecto2.jpg" width="300" height="150" alt="Generic placeholder image" align="middle">
+                    </div>
+                </div>
+            </div>
+                    <div class="form-group row">
+                <div class="col">
+                    <div class="form-group row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-2">
+                                    <div class="card card-profile text-center">
+                                        <span class="mb-1 text-bssa"><i class="icon-star"></i></span>
+                                        <h3 class="mb-0">{{proyecto.emplead}} {{proyecto.pE}} {{proyecto.sE}}</h3>
+                                        <p class="text-muted px-4">Encargado</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-2">
+                                    <div class="card card-profile text-center">
+                                        <span class="mb-1 text-kimberly"><i class="icon-user"></i></span>
+                                        <h3 class="mb-0">{{proyecto.nCliente}}</h3>
+                                        <p class="text-muted px-4">Cliente</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-2">
+                                    <div class="card card-profile text-center">
+                                        <span class="mb-1 text-primary"><i class="icon-home"></i></span>
+                                        <h3 class="mb-0">{{proyecto.nTipo}}</h3>
+                                        <p class="text-muted px-4">Tipo</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-2">
+                                    <div class="card card-profile text-center">
+                                        <span class="mb-1 text-pelorous"><i class="icon-info"></i></span>
+                                        {{#switch proyecto.estatus}} 
+                                            {{#case '1'}}
+                                                <h3 class="mb-0">Activo</h3>
+                                            {{/case}}
+                                            {{#case '2'}}
+                                                <h3 class="mb-0">Suspendido</h3>
+                                            {{/case}}
+                                            {{#case '3'}}
+                                                <h3 class="mb-0">Terminado</h3>
+                                            {{/case}}                                            
+                                        {{/switch}}
+                                        <p class="text-muted px-4">Estado</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-xl-8 col-xxl-4">
+                                    <div class="card card-profile text-center">
+                                        <span class="mb-1 text-bssb"><i class="icon-location-pin"></i></span>
+                                        <h3 class="mb-0">{{proyecto.calle}} {{proyecto.colonia}}</h3>
+                                        <p class="text-muted px-4">Ubicación</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="card gradient-2">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">CheckList</h3>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-clipboard-list"></i></span>
+                        </div>
+                        <a href="/Usr/checklist/{{proyecto.idProyecto}}" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="card gradient-3">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">Tareas</h3>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-address-book "></i></span>
+                        </div>
+                        <a href="/Usr/tareas/{{proyecto.idProyecto}}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

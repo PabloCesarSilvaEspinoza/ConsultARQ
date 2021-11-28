@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <a href="/consultarProveedor/{{info.idProveedor}}" class="btn btn-primary"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <center>
+                                <div class="row mb-2">
+                                    <div class="col">
+                                        <img class="mr-3" src="/images/avatar/avatar.png" width="80" height="80" alt="">
+                                    </div>
+                                </div>
+                            </center>
+                            <div class="row mb-3 text-center">
+                                <div class="col"> 
+                                    <h3 class="mb-0">{{info.nombre}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-danger" onclick="alertaProveeedor({{info.idProveedor}})"><i class="fas fa-times mr-2"></i>Eliminar</button>
+                                <script>
+                                    function alertaProveeedor(idProveedor){ 
+                                        var opcion = confirm('¿Desea eliminar este Proveedor?');
+                                        if(opcion == true){
+                                            location.href = '/eliminarProveedor/'+idProveedor;
+                                        }
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-validation">
+                        <form class="form-valide"action="/editarProveedor/{{info.idProveedor}}"  method="POST" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-5 mb-4">
+                                    <label class="form-label" for="nombre">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el/los nombre(s) del proveedor" value="{{info.nombre}}" required pattern="([A-Za-z].?){1,45}">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="cedula">Cedula</label>
+                                    <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Ingresa la cedula" value="{{info.cedula}}" required>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="dro">DRO</label>
+                                    <input type="text" class="form-control" id="dro" name="dro" placeholder="Ingresa el DRO" value="{{info.dro}}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="numeroCuenta">Numero de Cuenta</label>
+                                    <input type="text" class="form-control" id="numeroCuenta" name="numeroCuenta" placeholder="Ingresa el numero de cuenta" value="{{info.numeroCuenta}}" required pattern="([0-9]){3,35}">
+                                </div>
+                                <div class="col-lg-2 mb-4">
+                                    <label class="form-label" for="telefono">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingresa el teléfono" value="{{info.telefono}}" required pattern="([0-9]){3,12}">
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <label class="form-label" for="correo">Correo</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa el correo electrónico" value="{{info.correo}}" required pattern="[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*">
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <label class="form-label" for="estatus">Estatus</label>
+                                    <select class="form-control" id="estatus" name="estatus" placeholder="Estatus" required>
+                                        <option selected>
+                                            {{#if info.estatus}}
+                                                <p>Activo</p>
+                                            {{else}}
+                                                <p>Inactivo</p>
+                                            {{/if}}
+                                        </option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2 row">
+                                <div class="col-lg-8 ml-auto  text-right">
+                                    <button type="submit"  class="btn mb-1 btn-primary"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                    <a href="/consultarProveedor/{{info.idProveedor}}" class="btn mb-1 btn-outline-primary"><i class="fas fa-times-circle mr-2"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

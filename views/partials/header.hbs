@@ -1,0 +1,170 @@
+{{#if administrador}}
+<div id="">
+    <div class="nav-header">
+        <div class="brand-logo">
+            <a href="/perfil">
+                <b class="logo-abbr"><img src="/images/logo.png" alt=""> </b>
+                <span class="logo-compact"><img src="/images/logo-compact.png" alt=""></span>
+                <span class="brand-title" >
+                    <img src="/images/consultarQ3.png" class="rounded mx-auto d-block" alt="">
+                </span>
+            </a>
+        </div>
+    </div>
+ 
+    <div class="header">    
+        <div class="header-content clearfix">
+            
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <ul class="clearfix">
+                    
+                    <li class="icons dropdown">
+                        <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                            <span class="activity active"></span>
+                            <img src="/images/user/4.png" height="40" width="40" alt="">
+                        </div>
+                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="other"><i class="icon-user"></i> <span>Mi Cuenta</span></a>
+                                    </li>                                  
+                                    <hr class="my-2">
+                                    <li><a href="/logout"><i class="icon-key"></i> <span>Cerrar Sesión</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="nk-sidebar">           
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+    
+                <li class="nav-label" >
+                    <img src="/images/user/4.png" class="rounded mx-auto d-block" style="margin-top: 35px;"alt="...">
+                    <p></p>
+                    <p class="rounded mx-auto d-block">Administrador</p>
+                </li>
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false">
+                        <i class="icon-briefcase menu-icon"></i><span class="nav-text">Administracion</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="/tablaAreas">Areas</a></li>
+                        <li><a href="/tablaRoles">Roles</a></li>
+                        <li><a href="/administrarConceptos">Conceptos</a></li>
+                    </ul>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/consultarAll" aria-expanded="false">
+                        <i class="icon-notebook menu-icon"></i><span class="nav-text">Agenda</span>
+                    </a>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/proyectos" aria-expanded="false">
+                        <i class="icon-layers menu-icon"></i><span class="nav-text">Proyectos</span>
+                    </a>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/menuFinanzas" aria-expanded="false">
+                        <i class="icon-wallet menu-icon"></i><span class="nav-text">Caja chica</span>
+                    </a>
+                </li>
+                <li hidden class="mega-menu mega-menu-sm">
+                    <a class="" href="/tareasUsuarios" aria-expanded="false">
+                        <i class="icon-note menu-icon"></i><span class="nav-text">Mis Tareas</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-body">
+{{/if}}
+<!-- ----------------------------------MENU DE USUARIO ---------------------------- -->
+{{#if encargado}}
+    <div id="">
+    <div class="nav-header">
+        <div class="brand-logo">
+            <a href="/perfilUsuario">
+                <b class="logo-abbr"><img src="/images/logo.png" alt=""> </b>
+                <span class="logo-compact"><img src="/images/logo-compact.png" alt=""></span>
+                <span class="brand-title" >
+                    <img src="/images/consultarQ3.png" class="rounded mx-auto d-block" alt="">
+                </span>
+            </a>
+        </div>
+    </div>
+ 
+    <div class="header">    
+        <div class="header-content clearfix">
+            
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <ul class="clearfix">
+                    
+                    <li class="icons dropdown">
+                        <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                            <span class="activity active"></span>
+                            <img src="/images/user/4.png" height="40" width="40" alt="">
+                        </div>
+                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="other"><i class="icon-user"></i> <span>Mi Cuenta</span></a>
+                                    </li>                                   
+                                    <hr class="my-2">
+                                    <li><a href="/logout"><i class="icon-key"></i> <span>Cerrar Sesión</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="nk-sidebar">           
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+    
+                <li class="nav-label" >
+                    <img src="/images/user/4.png" class="rounded mx-auto d-block" style="margin-top: 35px;"alt="...">
+                    <p></p>
+                    <p class="rounded mx-auto d-block">{{encargado}}</p>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/Usr/consultarAgenda" aria-expanded="false">
+                        <i class="icon-notebook menu-icon"></i><span class="nav-text">Agenda</span>
+                    </a>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/Usr/consultarProyectos" aria-expanded="false">
+                        <i class="icon-layers menu-icon"></i><span class="nav-text">Proyectos</span>
+                    </a>
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="" href="/Usr/tareasUsuarios" aria-expanded="false">
+                        <i class="icon-note menu-icon"></i><span class="nav-text">Mis Tareas</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-body">
+{{/if}}
